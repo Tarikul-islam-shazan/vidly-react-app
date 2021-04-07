@@ -9,12 +9,12 @@ const ListGroup = (props) => {
         onItemSelect
     } = props;
     return ( 
-        <ul class="list-group">
+        <ul className="list-group">
             { items.map( item => 
-                <li   
+                <li  
                     onClick={() => onItemSelect(item)}  
                     key={item[valueProperty]} 
-                    className={ item === selectedItem ? "list-group-item active" : "list-group-item"}
+                    className={ item === selectedItem ? "clickable list-group-item active" : " clickable list-group-item"}
                 >
                     {item[textProperty]}
                 </li>
