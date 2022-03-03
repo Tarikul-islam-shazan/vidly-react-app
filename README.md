@@ -4,3 +4,7 @@
 
 ![Front page](./src/images/movies-page.png)
 
+After filtered and sorted 
+
+![Filtered and sorted  on movies page](./src/images/sorting-movies.png)
+
