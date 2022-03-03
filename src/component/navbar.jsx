@@ -7,7 +7,7 @@ class NavBar extends Component {
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/">
-                        Vidly
+                        Flim Flex
                     </Link>
                     <button 
                         className="navbar-toggler" 
@@ -26,6 +26,7 @@ class NavBar extends Component {
                             <NavLink className="nav-item nav-link " to="/customers">Customers</NavLink>
                             <NavLink className="nnav-item nav-link " to="/rentals">Rentals</NavLink>
                             <NavLink className="nnav-item nav-link " to="/login">Login</NavLink>
+                            <NavLink className="nnav-item nav-link " to="/register">Register</NavLink>
                         </ul>
                     </div>
                 </div>
