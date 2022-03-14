@@ -60,6 +60,8 @@ class RegisterForm extends Component {
         const { account, errors } = this.state;
 
         return (
+            <div>
+            <h1>Register</h1>
             <form onSubmit={this.handleSubmit}>
                 
                 <Input
@@ -99,6 +101,7 @@ class RegisterForm extends Component {
                         Submit
                 </button>
             </form>
+            </div>
         );
     }
 }
