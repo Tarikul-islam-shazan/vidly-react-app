@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link,NavLink } from 'react-router-dom';
 
-class NavBar extends Component {
-    render() { 
+const NavBar = ({ user }) => {
         return ( 
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container-fluid">
@@ -24,15 +23,24 @@ class NavBar extends Component {
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <NavLink className="nav-item nav-link active"  to="/movies">Movies</NavLink>
                             <NavLink className="nav-item nav-link " to="/customers">Customers</NavLink>
-                            <NavLink className="nnav-item nav-link " to="/rentals">Rentals</NavLink>
-                            <NavLink className="nnav-item nav-link " to="/login">Login</NavLink>
-                            <NavLink className="nnav-item nav-link " to="/register">Register</NavLink>
+                            <NavLink className="nav-item nav-link " to="/rentals">Rentals</NavLink>
+                            {!user && 
+                                <React.Fragment>
+                                    <NavLink className="nav-item nav-link " to="/login">Login</NavLink>
+                                    <NavLink className="nav-item nav-link " to="/register">Register</NavLink>
+                                </React.Fragment>
+                            }
+                             {user && 
+                                <React.Fragment>
+                                    <NavLink className="nav-item nav-link " to="/profile">{user.name}</NavLink>
+                                    <NavLink className="nav-item nav-link " to="/logout">Logout</NavLink>
+                                </React.Fragment>
+                            }
                         </ul>
                     </div>
                 </div>
             </nav>
          );
-    }
 }
  
 export default NavBar;
