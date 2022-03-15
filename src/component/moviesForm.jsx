@@ -2,7 +2,7 @@ import React from 'react';
 import Form from './common/form';
 import Joi from "joi-browser";
 import { getGenres } from '../services/genreService';
-import { getMovie } from '../services/moviesService';
+import { getMovie, saveMovie } from '../services/moviesService';
 class MovieForm extends Form {
     state = {
         data: {
@@ -68,6 +68,12 @@ class MovieForm extends Form {
           dailyRentalRate: movie.dailyRentalRate
         };
       }
+
+      doSubmit = async () => {
+        await saveMovie(this.state.data);
+    
+        this.props.history.push("/movies");
+      };
 
     render() {
         return (
