@@ -8,6 +8,7 @@ import Pagination from './common/pagination';
 import ListGroup from './common/listGroup';
 import MoviesTable from './moviesTable';
 import SearchBox from './searchBox';
+import { Link } from 'react-router-dom';
 
 class Movies extends Component {
 
@@ -86,6 +87,8 @@ class Movies extends Component {
     render() { 
         const { length: count } = this.state.movies;
         const { pageSize, currentPage, sortColumn, searchQuery  } = this.state;
+        const { user } = this.props;
+
         if(count === 0) return <p>There are no movies.</p>
         const { totalCount, data: movies } = this.getPageDate();
         return ( 
@@ -99,6 +102,13 @@ class Movies extends Component {
                         />
                     </div>
                     <div className="col">
+                    { user && <Link
+                        to="/movies/new"
+                        className='btn btn-primary'
+                        style={{ marginBottom: 20}}
+                        >
+                            New Movie
+                        </Link>}
                         <p>Showing {totalCount} movies in database.</p>
                         <SearchBox value={searchQuery} onChange={this.handleSearch} />
                         <MoviesTable
